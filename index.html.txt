@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PureHoney — натуральний мед</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #fffaf3;
+    color: #333;
+}
+
+header {
+    background: linear-gradient(90deg, #f7c948, #f2a900);
+    padding: 20px;
+    text-align: center;
+    color: white;
+}
+
+h1 { margin: 0; }
+
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.product {
+    background: white;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+button {
+    background: #f2a900;
+    border: none;
+    padding: 10px;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background: #d98e00;
+}
+
+.cart {
+    background: #fff;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+input, select {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>PureHoney 🍯</h1>
+    <p>Натуральний мед прямо від пасічника</p>
+</header>
+
+<div class="container">
+
+    <h2>Товари</h2>
+
+    <div class="product">
+        <h3>Мед травневий</h3>
+        <p>Натуральний мед</p>
+        <button onclick="addToCart('Мед травневий')">Додати</button>
+    </div>
+
+    <div class="product">
+        <h3>Мед білий ріпаковий</h3>
+        <p>Натуральний мед</p>
+        <button onclick="addToCart('Мед білий ріпаковий')">Додати</button>
+    </div>
+
+    <div class="cart">
+        <h2>Оформлення замовлення</h2>
+
+        <form action="https://formsubmit.co/pasaa451@gmail.com" method="POST">
+
+            <input type="hidden" name="товари" id="cartInput">
+
+            <input type="text" name="ім'я" placeholder="Ваше ім'я" required>
+            <input type="text" name="телефон" placeholder="Телефон" required>
+            <input type="text" name="адреса" placeholder="Адреса доставки" required>
+
+            <select name="вага">
+                <option>250 г - 85 грн</option>
+                <option>500 г - 170 грн</option>
+                <option>750 г - 250 грн</option>
+                <option>1000 г - 330 грн</option>
+                <option>3000 г - 950 грн</option>
+            </select>
+
+            <input type="number" name="кількість" placeholder="Кількість" value="1">
+
+            <button type="submit">Оформити замовлення</button>
+        </form>
+    </div>
+
+</div>
+
+<script>
+let cart = [];
+
+function addToCart(product) {
+    cart.push(product);
+    document.getElementById("cartInput").value = cart.join(", ");
+    alert(product + " додано в замовлення");
+}
+</script>
+
+</body>
+</html>
